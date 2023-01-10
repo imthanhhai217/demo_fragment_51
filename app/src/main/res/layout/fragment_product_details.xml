@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_item_product"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_img_product_with_stroke"
+        android:gravity="center"
+        android:padding="@dimen/_8sdp">
+
+        <ImageView
+            android:id="@+id/imgProductImage"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:hint="Product name"
+        android:text="Navy KROOKED sweater"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp" />
+
+    <TextView
+        android:id="@+id/tvProductDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:hint="Product details"
+        android:text="this is sweater"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_10ssp" />
+
+    <TextView
+        android:id="@+id/tvProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:hint="Product price"
+        android:text="16$"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvSizeS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/llCart"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:background="@drawable/bg_btn_item_product"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="S"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvSizeM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/llCart"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_toRightOf="@id/tvSizeS"
+            android:background="@drawable/bg_btn_item_product"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="M"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvSizeL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/llCart"
+            android:layout_toRightOf="@id/tvSizeM"
+            android:background="@drawable/bg_btn_item_product"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="L"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:id="@+id/llCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_btn_item_product"
+            android:padding="@dimen/_10sdp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_cart" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

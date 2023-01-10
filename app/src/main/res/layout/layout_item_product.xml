@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llItem"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_50sdp"
+    android:gravity="center"
+    android:padding="@dimen/_3sdp">
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="product name"
+        android:singleLine="true"
+        android:gravity="center"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold" />
+
+</LinearLayout>
