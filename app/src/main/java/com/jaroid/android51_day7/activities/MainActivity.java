@@ -2,20 +2,23 @@ package com.jaroid.android51_day7.activities;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.jaroid.android51_day7.intefaces.IItemClickListener;
+import com.jaroid.android51_day7.R;
 import com.jaroid.android51_day7.fragments.ListProductFragment;
 import com.jaroid.android51_day7.fragments.ProductDetailsFragment;
+import com.jaroid.android51_day7.intefaces.IItemClickListener;
 import com.jaroid.android51_day7.models.ProductModel;
-import com.jaroid.android51_day7.R;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "TESTING MAIN";
     private ListProductFragment listProductFragment;
     private int oldPosition = -1;
+    ImageButton btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initView();
-
     }
 
     private void initView() {
@@ -34,8 +36,19 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .add(R.id.container, listProductFragment)
                 .commit();
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeFragment();
+            }
+        });
+    }
 
-
+    private void removeFragment() {
+//        getSupportFragmentManager().beginTransaction().remove(listProductFragment).commit();
+        getSupportFragmentManager().popBackStack();
+        Log.d(TAG, "pop back stack: " + getSupportFragmentManager().getFragments().size());
     }
 
     private IItemClickListener clickListener = new IItemClickListener() {
@@ -43,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         public void onItemClick(int position, ProductModel model) {
             Log.d(TAG, "onItemClick: " + position);
             //Yêu cầu fragment cập nhật lại view
-            listProductFragment.updateSelectedPosition(position,oldPosition);
+            listProductFragment.updateSelectedPosition(position, oldPosition);
 
             addNewProductDetailFragment(model);
             oldPosition = position;
@@ -54,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
         ProductDetailsFragment productDetailsFragment = ProductDetailsFragment.newInstance(model);
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.containerDetail, productDetailsFragment)
+                .add(R.id.containerDetail, productDetailsFragment)
+                .addToBackStack("DETAILS")
                 .commit();
+
+        Log.d(TAG, "addNewProductDetailFragment: " + getSupportFragmentManager().getFragments().size());
     }
 }
